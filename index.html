@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Media Player</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="file-inputs">
+            <div class="file-input-box" onclick="document.getElementById('fileInput').click()">
+                <p>📁 Select Media</p>
+                <input type="file" id="fileInput" accept="video/*,audio/*">
+            </div>
+            <div class="file-input-box" onclick="document.getElementById('subtitleInput').click()">
+                <p>📝 Add Subtitles</p>
+                <input type="file" id="subtitleInput" accept=".srt">
+            </div>
+        </div>
+        
+        <div class="player-wrapper">
+            <div class="video-container">
+                <video id="videoPlayer"></video>
+                <div class="subtitle-display" id="subtitleDisplay"></div>
+                <div class="controls">
+                    <div class="progress-bar" id="progressBar">
+                        <div class="progress" id="progress"></div>
+                    </div>
+                    <div class="control-buttons">
+                        <button class="control-button" id="playBtn" title="Play">▶</button>
+                        <button class="control-button" id="stopBtn" title="Stop">⬛</button>
+                        <div class="volume-control">
+                            <button class="control-button" id="muteBtn">🔊</button>
+                            <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.1" value="1">
+                        </div>
+                        <div class="speed-control">
+                            <button class="speed-button" id="speedBtn">1x</button>
+                            <div class="speed-options">
+                                <button onclick="setPlaybackSpeed(0.5)">0.5x</button>
+                                <button onclick="setPlaybackSpeed(1.0)">1.0x</button>
+                                <button onclick="setPlaybackSpeed(1.5)">1.5x</button>
+                                <button onclick="setPlaybackSpeed(2.0)">2.0x</button>
+                            </div>
+                        </div>
+                        <button class="control-button" id="subtitleBtn" title="Subtitles">CC</button>
+                        <button class="control-button" id="fullscreenBtn" title="Fullscreen">⛶</button>
+                        <span class="time" id="timeDisplay">0:00 / 0:00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/player.js"></script>
+</body>
+</html>
